@@ -9,6 +9,12 @@ const Tours = () => {
   const handleDelete = (id) => {
     setTourData((prev) => prev.filter((t) => t.id !== id));
   };
+  const handleRemoveClick =(id) => {
+    const confirmRemoval = window.confirm(" Are you sure you want to remove this tour?");
+    if (confirmRemoval){
+      handleDelete(id)
+    }
+  }
 
   return (
     <section className="section" id="tours">
@@ -19,7 +25,7 @@ const Tours = () => {
           <Tour
             key={tour.id}
             {...tour}
-            onDelete={handleDelete}
+            onDelete={handleRemoveClick}
           />
         ))}
       </div>
