@@ -7,23 +7,23 @@ import Tours from "./components/Tours";
 import Home from "./components/Home";
 import NotFound from "./components/NotFound";
 import Registeration from "./components/Registeration"
+import Layout from "./components/Layout"
 import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
   return (
     <BrowserRouter>
-      <Navbar />
-      <Hero />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/services" element={<Services />} />
-        <Route path="/tours" element={<Tours />} />
-        <Route path="/about" element={<About />} />
-        <Route path="*" element={<NotFound />} />
-        <Route path ="/register" element ={<Registeration/>} />
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} /> 
+          <Route path="about" element={<About />} />
+          <Route path="services" element={<Services />} />
+          <Route path="tours" element={<Tours />} />
+          <Route path="register" element={<Registeration />} />
+          <Route path="*" element={<NotFound />} />
+        </Route>
       </Routes>
-      <Footer />
     </BrowserRouter>
   );
 }
