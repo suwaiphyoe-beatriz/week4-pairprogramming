@@ -1,10 +1,10 @@
 import { services } from '../data'
-import {userState} from 'react'
+import {useState} from 'react'
 import Title from './Title'
 import Service from './Service'
 
 const Services = () => {
-  const [serviceData, setServicesData] = userState(services)
+  const [serviceData, setServicesData] = useState(services)
   return (
     <section className='section services' id='services'>
       <Title title='our' subTitle='services' />
